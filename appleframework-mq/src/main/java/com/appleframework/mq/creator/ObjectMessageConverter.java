@@ -1,4 +1,4 @@
-package com.glsx.cloudframework.mq.creator;
+package com.appleframework.mq.creator;
 
 import javax.jms.JMSException;
 import javax.jms.Message;
@@ -9,7 +9,7 @@ import org.springframework.jms.support.converter.MessageConversionException;
 import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.stereotype.Component;
 
-import com.glsx.cloudframework.mq.util.ByteUtils;
+import com.appleframework.mq.util.ByteUtils;
 
 @Component("objectMessageConverter")
 public class ObjectMessageConverter implements MessageConverter {

@@ -12,7 +12,7 @@ import org.springframework.jms.core.JmsTemplate;
 import com.appleframework.mq.JmsMessageGroupSender;
 import com.appleframework.mq.creator.JmsByteMessageCreator;
 import com.appleframework.mq.creator.JmsObjectMessageCreator;
-import com.appleframework.mq.creator.JmsTextMessageCreator;
+
 
 /**
  * @author xusm
@@ -42,17 +42,6 @@ public class MessageGroupSender implements JmsMessageGroupSender {
 			Destination destination = destinations.get(i);
 			try {
 				this.jmsTemplates.get(i).send(destination, new JmsByteMessageCreator(serializable));
-			} catch (Exception e) {
-				logger.error(e);
-			}
-		}
-	}
-
-	public void sendText(String message) throws JmsException {
-		for (int i = 0; i < destinations.size(); i++) {
-			Destination destination = destinations.get(i);
-			try {
-				this.jmsTemplates.get(i).send(destination, new JmsTextMessageCreator(message));
 			} catch (Exception e) {
 				logger.error(e);
 			}

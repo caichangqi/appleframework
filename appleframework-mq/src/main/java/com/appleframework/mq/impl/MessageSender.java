@@ -1,4 +1,4 @@
-package com.glsx.cloudframework.mq.impl;
+package com.appleframework.mq.impl;
 
 import java.io.Serializable;
 
@@ -7,10 +7,9 @@ import javax.jms.Destination;
 import org.springframework.jms.JmsException;
 import org.springframework.jms.core.JmsTemplate;
 
-import com.glsx.cloudframework.mq.JmsMessageSender;
-import com.glsx.cloudframework.mq.creator.JmsByteMessageCreator;
-import com.glsx.cloudframework.mq.creator.JmsObjectMessageCreator;
-import com.glsx.cloudframework.mq.creator.JmsTextMessageCreator;
+import com.appleframework.mq.JmsMessageSender;
+import com.appleframework.mq.creator.JmsByteMessageCreator;
+import com.appleframework.mq.creator.JmsObjectMessageCreator;
 
 /**
  * @author xusm
@@ -29,10 +28,6 @@ public class MessageSender implements JmsMessageSender {
 		this.jmsTemplate.send(destination, new JmsByteMessageCreator(serializable));
 	}
 	
-	public void sendText(String message) throws JmsException {
-		this.jmsTemplate.send(destination, new JmsTextMessageCreator(message));
-	}
-
 	public JmsTemplate getJmsTemplate() {
 		return jmsTemplate;
 	}
